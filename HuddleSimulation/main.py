@@ -8,7 +8,7 @@ def main():
     """Manages the huddling simulation"""
     sim = Simulate(10)
 
-    # Iterations
+    # Iterate board
     iterations = 2
     for i in range(0, iterations):
         sim.step()
