@@ -31,7 +31,7 @@ double scale=1.0; //  Image scale
 int zh=90;        //  Light azimuth
 float Ylight=2;   //  Light elevation
 int obj;          //  Object display list
-float RGBA[4] = {1,1,1,1};  //  Colors
+float RGBA[4] = {1,0,0,1};  //  Colors
 
 /*
  *  OpenGL (GLUT) calls this routine to display the scene
@@ -93,16 +93,23 @@ void display()
    glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,RGBA);
    glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,Specular);
    glMaterialfv(GL_FRONT_AND_BACK,GL_EMISSION,Emission);
-
+   glColor3f(0.1,0.3,0.8);
    //  Draw the model
    glPushMatrix();
    glScaled(scale,scale,scale);
    glCallList(obj);
+   int i;
+   for (i = 1; i < 100; i ++)
+   {
+   glTranslated(i, 0, i);
+   glCallList(obj);
+   }
    glPopMatrix();
 
    //  Draw axes - no lighting from here on
    glDisable(GL_LIGHTING);
-   glColor3f(1,1,1);
+   glColor3f(0.2,0.7,0.1);
+
    if (axes)
    {
       glBegin(GL_LINES);
