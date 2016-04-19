@@ -1,7 +1,7 @@
 import random
 
-
 class Penguin(object):
+"""Represents a penguin"""
 
     def __init__(self, posX, posY, heat):
         self.heat = heat
@@ -11,8 +11,9 @@ class Penguin(object):
         self.position = (self.position[0]+1,self.position[1]+1)
 
     def lookAround(self):
+        pass
     
-pengiunone = Penguin(0,0,55)
-pengiunone.moveCycle()
+penguin = Penguin(0,0,55)
+penguin.moveCycle()
 
-print pengiunone.position
+print penguin.position
