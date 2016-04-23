@@ -1,6 +1,7 @@
 """Penguin"""
 import random
 
+
 class Penguin(object):
     """Represents a penguin"""
 
@@ -8,9 +9,9 @@ class Penguin(object):
         self.heat = heat
         self.x = posX
         self.y = posY
-       
+
     def moveCycle(self):
-        self.position = (self.position[0]+1,self.position[1]+1)
+        self.position = (self.position[0]+1, self.position[1]+1)
 
     def lookAround(self):
         pass
