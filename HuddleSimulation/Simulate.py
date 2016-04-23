@@ -20,6 +20,8 @@ class Simulate(object):
 
     def step(self):
         """Simulate a turn for the coldest penguin"""
+        for penguin in self.penguins:
+            penguin.lookAround(self.penguins)
         pass
 
     def save(self, file_name):
@@ -27,3 +29,5 @@ class Simulate(object):
         for i in range(0, len(self.penguins)):
             pass
         pass
+    
+    

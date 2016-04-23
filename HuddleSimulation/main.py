@@ -9,11 +9,14 @@ def main():
     Grid(sim.penguins)
 
     # Iterate board
-    iterations = 2
+    iterations = 100
     for i in range(0, iterations):
         sim.step()
+        Grid(sim.penguins)
     sim.save("iter_" + str(iterations))
+    #sleep(1)
 
 
+#    Grid(sim.penguins)
 if __name__ == "__main__":
     main()
