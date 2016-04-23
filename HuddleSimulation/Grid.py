@@ -4,7 +4,10 @@ import matplotlib.pyplot as plt
 class Grid(object):
     """Draw grid of pengun position"""
 
-    def __init__(self, penguins):
+    def __init__(self):
+        pass
+
+    def draw(self, penguins):
         x_vals, y_vals = [], []
         for penguin in penguins:
             x_vals.append(penguin.x)
@@ -14,4 +17,3 @@ class Grid(object):
         plt.plot(x_vals, y_vals, 'ro')
         plt.axis([-5, 105, -5, 105])
         plt.show()
-    pass
