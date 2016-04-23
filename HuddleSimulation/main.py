@@ -9,7 +9,7 @@ def main():
     grid = Grid()
 
     # Iterate board
-    iterations = 10
+    iterations = 20
     for i in range(0, iterations):
         sim.step()
         grid.draw(sim.penguins)

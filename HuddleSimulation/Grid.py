@@ -15,5 +15,5 @@ class Grid(object):
             pass
 
         plt.plot(x_vals, y_vals, 'ro')
-        plt.axis([-5, 105, -5, 105])
+        plt.axis([-100, 200, -100, 200])
         plt.show()

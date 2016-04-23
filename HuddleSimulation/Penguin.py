@@ -26,8 +26,6 @@ class Penguin(object):
             xMove = 5 * xMove/abs(xMove)
         if yMove != 0:
             yMove = 5 * yMove/abs(yMove)
-        #print(xMove)
-        #print(yMove)
         self.moveCycle(xMove, yMove)
 
     def toList(self):
