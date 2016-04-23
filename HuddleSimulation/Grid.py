@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 
-from Penguin import Penguin
-
 
 class Grid(object):
     """Draw grid of pengun position"""
@@ -14,5 +12,6 @@ class Grid(object):
             pass
 
         plt.plot(x_vals, y_vals, 'ro')
+        plt.axis([-5, 105, -5, 105])
         plt.show()
     pass

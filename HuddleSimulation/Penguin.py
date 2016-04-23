@@ -1,6 +1,4 @@
 """Penguin"""
-import random
-
 
 class Penguin(object):
     """Represents a penguin"""
