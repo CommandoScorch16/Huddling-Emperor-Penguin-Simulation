@@ -6,7 +6,7 @@ from Simulate import Simulate
 def main():
     """Manages the huddling simulation"""
     sim = Simulate(10)
-    Grid(sim.penguins)
+    grid = Grid()
 
     # Iterate board
     iterations = 100
@@ -14,7 +14,7 @@ def main():
         sim.step()
         Grid(sim.penguins)
     sim.save("iter_" + str(iterations))
-    #sleep(1)
+    grid.draw(sim.penguins)
 
 
 #    Grid(sim.penguins)

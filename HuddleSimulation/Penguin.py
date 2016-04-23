@@ -1,5 +1,6 @@
 """Penguin"""
 
+
 class Penguin(object):
     """Represents a penguin"""
 
@@ -8,12 +9,11 @@ class Penguin(object):
         self.x = posX
         self.y = posY
 
-    def moveCycle(self,xMove,yMove):
+    def moveCycle(self, xMove, yMove):
         self.x = (self.x+xMove)
         self.y = (self.y+yMove)
 
-    def lookAround(self,penguinList):
-        distances = []
+    def lookAround(self, penguinList):
         xMove = 0.0
         yMove = 0.0
         for penguin in penguinList:
@@ -23,9 +23,13 @@ class Penguin(object):
             if self.y != penguin.y:
                 yMove = yMove + (penguin.y-self.y)
         if xMove != 0:
-            xMove = 2* xMove/abs(xMove) 
+            xMove = 5 * xMove/abs(xMove)
         if yMove != 0:
-            yMove = 2* yMove/abs(yMove)
-        print xMove
-        print yMove
-        self.moveCycle(xMove,yMove)
+            yMove = 5 * yMove/abs(yMove)
+        #print(xMove)
+        #print(yMove)
+        self.moveCycle(xMove, yMove)
+
+    def toList(self):
+        """Convert penguin to CSV row"""
+        return [self.heat, self.x, self.y]

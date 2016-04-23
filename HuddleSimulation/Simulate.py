@@ -1,4 +1,5 @@
 """Simulate"""
+import csv
 import random
 
 from Penguin import Penguin
@@ -17,7 +18,7 @@ class Simulate(object):
         penguins = []
         for i in range(0, penguin_count):
             x, y = random.randint(0, 100), random.randint(0, 100)
-            penguins.append(Penguin(x, y))
+            penguins.append(Penguin(x, y, random.randint(0, 10)))
         return penguins
 
     def step(self):
@@ -28,8 +29,13 @@ class Simulate(object):
 
     def save(self, file_name):
         """Save the current information as a csv"""
-        for i in range(0, len(self.penguins)):
-            pass
+        with open(self.output_dir+'/'+file_name, 'wb') as file:
+            wr = csv.writer(file, delimiter=' ', quoting=csv.QUOTE_MINIMAL)
+            wr.writerow(['Temperature', 'X-value', 'Y-value'])
+            penguins = [pen.toList() for pen in self.penguins]
+            penguins.sort()
+            for penguin in penguins:
+                wr.writerow(penguin)
         pass
     
     
