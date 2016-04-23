@@ -18,14 +18,14 @@ class Penguin(object):
         yMove = 0.0
         for penguin in penguinList:
             if self.x != penguin.x:
-                xMove = xMove + 1.0/(penguin.x-self.x)
+                xMove = xMove + (penguin.x-self.x)
 
             if self.y != penguin.y:
-                yMove = yMove + 1.0/(penguin.y-self.y)
+                yMove = yMove + (penguin.y-self.y)
         if xMove != 0:
-            xMove = 5* xMove/abs(xMove) 
+            xMove = 2* xMove/abs(xMove) 
         if yMove != 0:
-            yMove = 5* yMove/abs(yMove)
+            yMove = 2* yMove/abs(yMove)
         print xMove
         print yMove
         self.moveCycle(xMove,yMove)
