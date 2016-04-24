@@ -22,7 +22,7 @@ class Simulate(object):
         return penguins
 
     def step(self):
-        """Simulate a turn for the coldest penguin"""
+        """Simulate movement for each penguin"""
         for penguin in self.penguins:
             penguin.lookAround(self.penguins)
         pass
@@ -31,6 +31,7 @@ class Simulate(object):
         """Save the current information as a csv"""
         with open(self.output_dir+'/'+file_name, 'wb') as file:
             wr = csv.writer(file, delimiter=' ', quoting=csv.QUOTE_MINIMAL)
+            print("Saving file: "+file_name)
             wr.writerow(['Temperature', 'X-value', 'Y-value'])
             penguins = [pen.toList() for pen in self.penguins]
             penguins.sort()
