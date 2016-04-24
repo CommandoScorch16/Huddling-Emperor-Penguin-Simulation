@@ -16,8 +16,7 @@ class Penguin(object):
         self.y = (self.y+yMove)
         penguinTooClose = False
         for penguin in penguinsAround:
-            print(len(penguinsAround))
-            if self.dist(penguin) < 3 and len(penguinsAround) > 2:
+            if self.dist(penguin) < 1.5:
                 penguinTooClose = True
 
         if penguinTooClose:
@@ -52,9 +51,9 @@ class Penguin(object):
             if self.y != penguin.y:
                 deltaY += (penguin.y-self.y)
         if deltaX != 0:
-            deltaX = deltaX/abs(deltaX)
+            deltaX = (deltaX/50)/24
         if deltaY != 0:
-            deltaY = deltaY/abs(deltaY)
+            deltaY = (deltaY/50)/24
         if len(pengAround) < 5:
             self.moveCycle(deltaX, deltaY, pengAround)
 

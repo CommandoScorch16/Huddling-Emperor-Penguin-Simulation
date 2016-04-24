@@ -7,11 +7,11 @@ from Simulate import Simulate
 
 def main():
     """Manages the huddling simulation"""
-    sim = Simulate(20)
+    sim = Simulate(50)
     grid = Grid()
 
     # Iterate board
-    iterations = 50
+    iterations = 60
     for i in range(0, iterations):
         sim.step()
         grid.update(sim.penguins)
