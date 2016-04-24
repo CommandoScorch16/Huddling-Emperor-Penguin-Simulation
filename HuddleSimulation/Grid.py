@@ -11,8 +11,8 @@ class Grid(object):
         plt.ion()
         self.figure, self.ax = plt.subplots()
         self.lines, = self.ax.plot([], [], 'o')
-        self.ax.set_xlim([-5, 105])
-        self.ax.set_ylim([-5, 105])
+        self.ax.set_xlim([-5, 305])
+        self.ax.set_ylim([-5, 305])
         pass
 
     def update(self, penguins):

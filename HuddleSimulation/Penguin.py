@@ -28,13 +28,12 @@ class Penguin(object):
         delta_y = self.y - Penguin.y
         return Math.sqrt(delta_x*delta_x + delta_y*delta_y)
 
-    # penguinList is the list of all penguins
-    # returns a list of all the penguins within a distance of 2.5
-    def penguinsAround(self, penguinList):
+    def penguinsAround(self, distance, penguinList):
+        """Find penguins within a given distance of each other"""
         penguinsAround = []
         for penguin in penguinList:
             dist = self.dist(penguin)
-            if dist < 2.5 and dist != 0:
+            if dist < distance and dist != 0:
                 penguinsAround.append(penguin)
         return penguinsAround
 
@@ -43,7 +42,7 @@ class Penguin(object):
         deltaX, deltaY = 0.0, 0.0
         pengAround = []
         for penguin in penguinList:
-            pengAround = self.penguinsAround(penguinList)
+            pengAround = self.penguinsAround(2.5, penguinList)
 
             if self.x != penguin.x:
                 deltaX += (penguin.x-self.x)
