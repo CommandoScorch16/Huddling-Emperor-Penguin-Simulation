@@ -36,6 +36,3 @@ class Simulate(object):
             penguins.sort()
             for penguin in penguins:
                 wr.writerow(penguin)
-        pass
-    
-    
