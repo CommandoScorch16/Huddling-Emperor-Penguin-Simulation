@@ -1,5 +1,7 @@
 """Penguin"""
 import math as Math
+
+
 class Penguin(object):
     """Represents a penguin"""
 
@@ -12,19 +14,21 @@ class Penguin(object):
         self.x = (self.x+xMove)
         self.y = (self.y+yMove)
 
-    def dist(self,Penguin):
-	return Math.sqrt(Math.pow((self.x-Penguin.x),2) + Math.pow((self.y-Penguin.y),2))
-	
+    def dist(self, Penguin):
+        delta_x = self.x - Penguin.x
+        delta_y = self.y - Penguin.y
+        return Math.sqrt(delta_x*delta_x + delta_y*delta_y)
+
     def lookAround(self, penguinList):
         """Calculate how much a penguin will move next step"""
         deltaX, deltaY = 0.0, 0.0
         for penguin in penguinList:
-			self.dist(penguin)
-			if self.x != penguin.x:
-				deltaX += (penguin.x-self.x)
+            self.dist(penguin)
+            if self.x != penguin.x:
+                deltaX += (penguin.x-self.x)
 
-			if self.y != penguin.y:
-				deltaY += (penguin.y-self.y)
+                if self.y != penguin.y:
+                    deltaY += (penguin.y-self.y)
         if deltaX != 0:
             deltaX = 5 * deltaX/abs(deltaX)
         if deltaY != 0:

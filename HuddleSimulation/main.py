@@ -17,6 +17,7 @@ def main():
         grid.update(sim.penguins)
         time.sleep(0.5)
         sim.save("iter_" + str(i))
+    time.sleep(10)
 
 if __name__ == "__main__":
     main()
