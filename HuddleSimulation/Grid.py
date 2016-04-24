@@ -13,7 +13,6 @@ class Grid(object):
         self.lines, = self.ax.plot([], [], 'o')
         self.ax.set_xlim([-5, 105])
         self.ax.set_ylim([-5, 105])
-        self.ax.grid()
         pass
 
     def update(self, penguins):

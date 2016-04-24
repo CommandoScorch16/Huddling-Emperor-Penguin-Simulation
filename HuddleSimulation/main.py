@@ -11,7 +11,7 @@ def main():
     grid = Grid()
 
     # Iterate board
-    iterations = 40
+    iterations = 50
     for i in range(0, iterations):
         sim.step()
         grid.update(sim.penguins)

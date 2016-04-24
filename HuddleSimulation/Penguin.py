@@ -10,7 +10,7 @@ class Penguin(object):
         self.y = posY
 
     def moveCycle(self, xMove, yMove,penguinsAround):
-        
+
         self.x = (self.x+xMove)
         self.y = (self.y+yMove)
         penguinTooClose = False
@@ -22,13 +22,13 @@ class Penguin(object):
         if penguinTooClose:
             self.x = self.x-xMove
             self.y = self.y-yMove
-        
+
     def dist(self, Penguin):
         delta_x = self.x - Penguin.x
         delta_y = self.y - Penguin.y
         return Math.sqrt(delta_x*delta_x + delta_y*delta_y)
-    
-    #penguinList is the list of all penguins 
+
+    #penguinList is the list of all penguins
     #returns a list of all the penguins within a distance of 2.5
     def penguinsAround(self,penguinList):
         penguinsAround =[]
@@ -45,7 +45,7 @@ class Penguin(object):
         pengAround = []
         for penguin in penguinList:
             pengAround = self.penguinsAround(penguinList)
- 
+
             if self.x != penguin.x:
                 deltaX += (penguin.x-self.x)
 
