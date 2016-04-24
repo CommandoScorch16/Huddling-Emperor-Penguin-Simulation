@@ -5,7 +5,7 @@ from Simulate import Simulate
 
 def main():
     """Manages the huddling simulation"""
-    sim = Simulate(10)
+    sim = Simulate(20)
     grid = Grid()
 
     # Iterate board

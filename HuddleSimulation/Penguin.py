@@ -14,19 +14,19 @@ class Penguin(object):
         self.y = (self.y+yMove)
 
     def lookAround(self, penguinList):
-        xMove = 0.0
-        yMove = 0.0
+        """Calculate how much a penguin will move next step"""
+        deltaX, deltaY = 0.0, 0.0
         for penguin in penguinList:
             if self.x != penguin.x:
-                xMove = xMove + (penguin.x-self.x)
+                deltaX += (penguin.x-self.x)
 
             if self.y != penguin.y:
-                yMove = yMove + (penguin.y-self.y)
-        if xMove != 0:
-            xMove = 5 * xMove/abs(xMove)
-        if yMove != 0:
-            yMove = 5 * yMove/abs(yMove)
-        self.moveCycle(xMove, yMove)
+                deltaY += (penguin.y-self.y)
+        if deltaX != 0:
+            deltaX = 5 * deltaX/abs(deltaX)
+        if deltaY != 0:
+            deltaY = 5 * deltaY/abs(deltaY)
+        self.moveCycle(deltaX, deltaY)
 
     def toList(self):
         """Convert penguin to CSV row"""
