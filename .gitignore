@@ -1,3 +1,5 @@
 *.o
 *.swp
+*.swm
+*.swn
 *.pyc
