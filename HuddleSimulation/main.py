@@ -7,16 +7,16 @@ from Simulate import Simulate
 
 def main():
     """Manages the huddling simulation"""
-    sim = Simulate(20)
+    sim = Simulate(50)
     grid = Grid()
 
     # Iterate board
-    iterations = 200
+    iterations = 150
     for i in range(0, iterations):
         sim.step()
         grid.update(sim.penguins)
         # time.sleep(0.1)
-        # sim.save("iter_" + str(i))
+        sim.save("iter_" + str(i))
     time.sleep(3)
 
 if __name__ == "__main__":
