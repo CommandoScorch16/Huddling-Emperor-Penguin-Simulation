@@ -11,13 +11,12 @@ def main():
     grid = Grid()
 
     # Iterate board
-    iterations = 80
+    iterations = 150
     for i in range(0, iterations):
         sim.step()
-        sim.stepWithHeat()
         grid.update(sim.penguins)
         # time.sleep(0.1)
-        #sim.save("iter_" + str(i))
+        # sim.save("iter_" + str(i))
     time.sleep(3)
 
 if __name__ == "__main__":

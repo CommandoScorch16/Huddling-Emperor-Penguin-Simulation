@@ -2,6 +2,7 @@
 import math as Math
 import random
 
+
 class Penguin(object):
     """Represents a penguin"""
 
@@ -62,17 +63,15 @@ class Penguin(object):
         if len(pengAround) < 10:
             self.moveCycle(deltaX, deltaY, pengAround)
 
-    def cycleBasedOffHeat(self,penguinList):
+    def cycleBasedOffHeat(self, penguinList):
         allPenguins = {}
-        lowestPenguins = []
-        highestPenguins = []
 
         heatChange = 0.0
         for penguin in penguinList:
-            pengAround = penguin.penguinsAround(5,penguinList) 
+            pengAround = penguin.penguinsAround(5, penguinList)
             allPenguins[penguin] = pengAround
             if len(pengAround) > 8:
-                for peng in pengAround:    
+                for peng in pengAround:
                     heatChange += peng.heat
                 heatChange = heatChange/len(pengAround)
                 diff = abs(39.0-heatChange)
@@ -80,8 +79,8 @@ class Penguin(object):
                     diff = .3
                 penguin.heat += diff
             heatChange = 0.0
-            
-            if len(pengAround) <2:
+
+            if len(pengAround) < 2:
                 penguin.heat -= .05
 
     def toList(self):
