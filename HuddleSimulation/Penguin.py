@@ -1,5 +1,6 @@
 """Penguin"""
 import math as Math
+import random as rnd
 
 
 class Penguin(object):
@@ -11,12 +12,12 @@ class Penguin(object):
         self.y = posY
 
     def moveCycle(self, xMove, yMove, penguinsAround):
-
+        """Move a penguin if no one else is around"""
         self.x = (self.x+xMove)
         self.y = (self.y+yMove)
         penguinTooClose = False
         for penguin in penguinsAround:
-            if self.dist(penguin) < 2.3:
+            if self.dist(penguin) < 3:
                 penguinTooClose = True
 
         if penguinTooClose:
@@ -42,21 +43,23 @@ class Penguin(object):
         deltaX, deltaY = 0.0, 0.0
         pengAround = []
         for penguin in penguinList:
-            pengAround = self.penguinsAround(2.5, penguinList)
-            if self.x != penguin.x:
-                deltaX += (penguin.x-self.x)
+            pengAround = self.penguinsAround(2, penguinList)
+            deltaX += (penguin.x-self.x)
 
-            if self.y != penguin.y:
-                deltaY += (penguin.y-self.y)
-        if deltaX != 0:
-            deltaX = (deltaX/len(penguinList))
-        if deltaY != 0:
-            deltaY = (deltaY/len(penguinList))
-            # Scale movment to match maximum radius
-            scale = 2.0 / Math.sqrt(deltaX*deltaX + deltaY*deltaY)
-            deltaX *= scale
-            deltaY *= scale
-        if len(pengAround) < 5:
+            deltaY += (penguin.y-self.y)
+        # Normalize distance
+        deltaX = (deltaX/len(penguinList))
+        deltaY = (deltaY/len(penguinList))
+        # Scale movment to match maximum radius
+        max_radius = 2.0
+        scale = max_radius / Math.sqrt(deltaX*deltaX + deltaY*deltaY)
+        deltaX *= scale
+        deltaY *= scale
+        # Add randomization
+        rnd_range = 2
+        deltaX += (rnd_range - (rnd.random() * 2 * rnd_range))
+        deltaY += (rnd_range - (rnd.random() * 2 * rnd_range))
+        if len(pengAround) < 10:
             self.moveCycle(deltaX, deltaY, pengAround)
 
     def toList(self):

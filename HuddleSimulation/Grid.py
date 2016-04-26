@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 
 class Grid(object):
     """Draw grid of pengun position"""
-
     h1, = plt.plot([], [])
 
     def __init__(self):
@@ -29,11 +28,10 @@ class Grid(object):
                          Math.ceil(max_x / window) * window])
 
         self.lines.set_ydata(y_vals)
-        max_y, min_y = max(x_vals), min(x_vals)
+        max_y, min_y = max(y_vals), min(y_vals)
         self.ax.set_ylim([Math.floor(min_y / window) * window,
                          Math.ceil(max_y / window) * window])
         self.figure.canvas.draw()
-        pass
 
     def max(self, data):
         max_val = 0

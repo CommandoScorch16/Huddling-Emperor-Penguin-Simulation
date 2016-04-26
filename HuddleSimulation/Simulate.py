@@ -17,7 +17,8 @@ class Simulate(object):
         """Generate initial penguins"""
         penguins = []
         for i in range(0, penguin_count):
-            x, y = random.randint(0, 300), random.randint(0, 300)
+            x = random.randint(0, 300)
+            y = random.randint(0, 300)
             penguins.append(Penguin(x, y, random.randint(0, 10)))
         return penguins
 
