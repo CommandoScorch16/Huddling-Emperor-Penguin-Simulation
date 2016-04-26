@@ -1,12 +1,11 @@
 """Penguin"""
 import math as Math
-import random as rnd
-
+import random
 
 class Penguin(object):
     """Represents a penguin"""
 
-    def __init__(self, posX, posY, heat=39):
+    def __init__(self, posX, posY, heat):
         self.heat = heat
         self.x = posX
         self.y = posY
@@ -42,6 +41,7 @@ class Penguin(object):
         """Calculate how much a penguin will move next step"""
         deltaX, deltaY = 0.0, 0.0
         pengAround = []
+
         for penguin in penguinList:
             pengAround = self.penguinsAround(2, penguinList)
             deltaX += (penguin.x-self.x)
@@ -57,10 +57,32 @@ class Penguin(object):
         deltaY *= scale
         # Add randomization
         rnd_range = 2
-        deltaX += (rnd_range - (rnd.random() * 2 * rnd_range))
-        deltaY += (rnd_range - (rnd.random() * 2 * rnd_range))
+        deltaX += (rnd_range - (random.random() * 2 * rnd_range))
+        deltaY += (rnd_range - (random.random() * 2 * rnd_range))
         if len(pengAround) < 10:
             self.moveCycle(deltaX, deltaY, pengAround)
+
+    def cycleBasedOffHeat(self,penguinList):
+        allPenguins = {}
+        lowestPenguins = []
+        highestPenguins = []
+
+        heatChange = 0.0
+        for penguin in penguinList:
+            pengAround = penguin.penguinsAround(5,penguinList) 
+            allPenguins[penguin] = pengAround
+            if len(pengAround) > 8:
+                for peng in pengAround:    
+                    heatChange += peng.heat
+                heatChange = heatChange/len(pengAround)
+                diff = abs(39.0-heatChange)
+                if diff > .3:
+                    diff = .3
+                penguin.heat += diff
+            heatChange = 0.0
+            
+            if len(pengAround) <2:
+                penguin.heat -= .05
 
     def toList(self):
         """Convert penguin to CSV row"""

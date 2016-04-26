@@ -17,15 +17,18 @@ class Simulate(object):
         """Generate initial penguins"""
         penguins = []
         for i in range(0, penguin_count):
-            x = random.randint(0, 300)
-            y = random.randint(0, 300)
-            penguins.append(Penguin(x, y, random.randint(0, 10)))
+            x, y = random.randint(0, 300), random.randint(0, 300)
+            penguins.append(Penguin(x, y, random.uniform(38.0, 40.0)))
         return penguins
 
     def step(self):
         """Simulate movement for each penguin"""
         for penguin in self.penguins:
             penguin.lookAround(self.penguins)
+        pass
+
+    def stepWithHeat(self):
+        self.penguins[0].cycleBasedOffHeat(self.penguins)
         pass
 
     def save(self, file_name):
