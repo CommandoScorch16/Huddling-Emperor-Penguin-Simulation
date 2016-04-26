@@ -49,9 +49,13 @@ class Penguin(object):
             if self.y != penguin.y:
                 deltaY += (penguin.y-self.y)
         if deltaX != 0:
-            deltaX = (deltaX/len(penguinList))/24
+            deltaX = (deltaX/len(penguinList))
         if deltaY != 0:
-            deltaY = (deltaY/len(penguinList))/24
+            deltaY = (deltaY/len(penguinList))
+            # Scale movment to match maximum radius
+            scale = 2.0 / Math.sqrt(deltaX*deltaX + deltaY*deltaY)
+            deltaX *= scale
+            deltaY *= scale
         if len(pengAround) < 5:
             self.moveCycle(deltaX, deltaY, pengAround)
 
