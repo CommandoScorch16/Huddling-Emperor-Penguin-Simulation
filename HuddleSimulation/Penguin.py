@@ -85,4 +85,4 @@ class Penguin(object):
 
     def toList(self):
         """Convert penguin to CSV row"""
-        return [self.heat, self.x, self.y]
+        return [self.x, self.y, self.heat]

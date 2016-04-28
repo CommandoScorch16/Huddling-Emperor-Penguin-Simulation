@@ -11,7 +11,9 @@ class Simulate(object):
     def __init__(self, penguin_count):
         self.penguins = self.generate_penguins(penguin_count)
         self.output_dir = "../output"
-        pass
+        with open("../output.csv", 'wb') as file:
+            wr = csv.writer(file, delimiter=' ', quoting=csv.QUOTE_MINIMAL)
+            wr.writerow(['X-value', 'Y-value', 'Temperature'])
 
     def generate_penguins(self, penguin_count):
         """Generate initial penguins"""
@@ -30,10 +32,9 @@ class Simulate(object):
 
     def save(self, file_name):
         """Save the current information as a csv"""
-        with open(self.output_dir+'/'+file_name, 'wb') as file:
+        with open("../output.csv", 'a') as file:
             wr = csv.writer(file, delimiter=' ', quoting=csv.QUOTE_MINIMAL)
-            print("Saving file: "+file_name)
-            wr.writerow(['Temperature', 'X-value', 'Y-value'])
+            print("Saving iter: "+file_name)
             penguins = [pen.toList() for pen in self.penguins]
             penguins.sort()
             for penguin in penguins:
